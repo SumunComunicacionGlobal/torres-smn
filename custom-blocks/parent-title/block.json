@@ -1,0 +1,40 @@
+{
+  "apiVersion": 2,
+  "name": "smn/parent-title",
+  "title": "Título del padre",
+  "category": "theme",
+  "icon": "heading",
+  "description": "Muestra el título del padre de la entrada actual.",
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "fontFamily": true,
+      "fontWeight": true,
+      "lineHeight": true,
+      "letterSpacing": true
+    },
+    "__experimentalBorder": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true,
+        "__experimentalDefaultControls": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true
+        }
+    },
+    "shadow": true
+  },
+  "textdomain": "_sumun",
+  "editorScript": "file:./index.js"
+}

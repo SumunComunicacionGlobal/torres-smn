@@ -1,0 +1,212 @@
+@use '../abstracts/mixins' as *;
+
+/* Cambiar breakpoints del menú */
+body .wp-block-navigation__responsive-container-open:not(.always-shown) {
+	display: block !important;
+}
+body .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+	display: none !important;
+}
+
+@media ($above-laptop) {
+	body .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: none !important;;
+	}
+	body .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: block !important;
+	}
+	#masthead .wp-block-navigation__container {
+		row-gap: 0;
+	}
+}
+
+@media ($below-laptop) {
+	#masthead > .wp-block-group > .wp-block-buttons {
+		flex-grow: 1;
+		justify-content: flex-end;
+	}
+}
+
+@media ($below-mobile) {
+	#masthead > .wp-block-group > .wp-block-buttons .wp-block-button__link {
+		padding-left: var(--wp--preset--spacing--10);
+		padding-right: var(--wp--preset--spacing--10);
+		white-space: nowrap;
+	}
+}
+/***/
+
+
+#masthead {
+
+
+	.wp-block-navigation .wp-block-navigation__submenu-container {
+		min-width: 256px;
+		background-color: var(--wp--preset--color--neutral-20);
+		border-radius: var(--wp--custom--border-radius--1);
+		border-color: var(--wp--preset--color--neutral-30);
+		padding: var(--wp--custom--border-radius--1) var(--wp--preset--spacing--05);
+		box-shadow: var(--wp--custom--box-shadow--1);
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open {
+		bottom: unset;
+		top: -2rem;
+		
+		.wp-block-navigation {
+			gap: 0;
+			
+			.wp-block-navigation-item {
+				flex-wrap: wrap;
+				width: 100%;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid var(--wp--preset--color--neutral-30);
+				}
+
+				.wp-block-navigation-item__content { //button and link
+					flex-grow: 1;
+					padding-top: .75rem;
+					padding-bottom: .75rem;
+					color: var(--wp--preset--color--primary);
+				}
+
+				.wp-block-navigation__submenu-container {
+					position: relative;
+					flex: 0 0 100%;
+					width: 100%;
+					padding: 0;
+					padding-left: var(--wp--preset--spacing--10);
+					border: none;
+					box-shadow: none;
+					background-color: transparent;
+				}
+
+			}
+
+			.wp-block-navigation__submenu-icon {
+				background-color: var(--wp--preset--color--primary-30);
+				border-radius: var(--wp--custom--border-radius--rounded);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 1.25rem;
+				height: 1.25rem;
+				padding: 0.25rem;
+				margin-left: auto;
+				cursor: pointer;
+				position: relative;
+				z-index: 2;
+				pointer-events: auto;
+
+				&::before {
+					content: '';
+					position: absolute;
+					inset: -0.375rem;
+				}
+
+				svg,
+				path {
+					pointer-events: none;
+				}
+			}
+
+			> li {
+
+				> .wp-block-navigation-item__content {
+					font-weight: 600;
+					font-size: var(--wp--preset--font-size--body);
+				}
+
+				> ul.wp-block-navigation-submenu > li {
+
+					> .wp-block-navigation-item__content {
+						font-size: var(--wp--preset--font-size--body);
+					}
+
+					> .wp-block-navigation__submenu-icon {
+						background-color: var(--wp--preset--color--neutral-10);
+					}
+				}
+			}
+
+		}
+
+	}
+
+
+	.wp-block-navigation > li > a,
+	.wp-block-navigation__responsive-container-open {
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+	}
+
+	.wp-block-navigation > li {
+
+		&.current-menu-item,
+		&.current-menu-ancestor {
+
+			> .wp-block-navigation-item__content {
+				color: var(--wp--preset--color--primary-30);
+			}
+
+		}
+		
+		> ul {
+
+			.current-menu-item,
+			.current-menu-ancestor {
+
+				> .wp-block-navigation-item__content {
+					font-weight: 700;
+				}
+
+			}
+
+		}
+
+	}
+
+
+	@media ($below-laptop) {
+		.wp-block-site-logo + .wp-block-group {
+			order: 1;
+		}
+	}
+
+}
+
+.wp-block-group.is-position-sticky {
+
+	.wp-block-navigation__container {
+		gap: var(--wp--preset--spacing--10);
+	}
+
+	.wp-block-navigation-item__content {
+		position: relative;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: color 0.2s ease;
+
+		&.is-active {
+			color: var(--wp--preset--color--primary-30);
+		}
+
+	}
+}
+
+@media ($below-tablet) {
+	.wp-block-group.is-position-sticky .wp-block-navigation__container {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-gutter: stable;
+		scrollbar-width: thin;
+		padding-bottom: 0.75rem;
+	}
+
+}

@@ -1,0 +1,33 @@
+.wp-block-query-pagination {
+
+    margin-block-start: var(--wp--preset--spacing--70);
+    
+    .wp-block-query-pagination-numbers {
+        display: flex;
+        gap: var(--wp--preset--spacing--10);
+
+        .page-numbers {
+            background-color: var(--wp--preset--color--primary-30);
+            color: var(--wp--preset--color--background);
+            text-decoration: none;
+            border-radius: var(--wp--custom--border-radius--rounded);
+            width: var(--wp--preset--spacing--40);
+            height: var(--wp--preset--spacing--40);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.current {
+                background-color: var(--wp--preset--color--primary-80);
+
+                &:hover {
+                    background-color: var(--wp--preset--color--primary-80);
+                }
+            }
+
+            &:hover {
+                background-color: var(--wp--preset--color--primary-100);
+            }
+        }
+    }
+}

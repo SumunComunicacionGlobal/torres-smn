@@ -1,0 +1,109 @@
+@use '../abstracts/mixins' as *;
+
+.filter-by {
+    .wp-block-categories-list {
+        list-style: none;
+        display: flex;
+        gap: var(--wp--custom--layout--gap);
+        margin: 0;
+        padding: 0;
+
+        @media ($below-tablet) {
+            flex-direction: column;
+            flex-basis: 100%;
+            gap: 1rem;
+            max-height: 50dvh;
+            opacity: 1;
+            transition: .5s ease-in-out;
+        }
+
+        a {
+            text-decoration: none;
+            border-radius: var(--wp--custom--border-radius--rounded);
+            border: 1px solid;
+            padding: .5rem 1rem;
+            color: var(--wp--preset--color--primary-80);
+            transition: transform 0.3s ease;
+
+            &:after {
+                content: none;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    @media ($below-tablet) {
+        &.filter-by--is-open {
+            .wp-block-categories-list {
+                max-height: 0;
+                opacity: 0;
+                transition: .5s ease-in-out;
+                margin-bottom: var(--wp--preset--spacing--40);
+            }
+
+            .toggle-filter-by img {
+                transform: rotate(90deg);
+                transition: .5s ease-in-out;
+            }
+        }
+    }
+}
+
+.saboxplugin-wrap {
+    margin-top: var(--wp--custom--layout--gap-large) !important;
+    margin-bottom: var(--wp--custom--layout--gap-large) !important;
+}
+
+.mwctabox {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    padding: 45px 40px;
+    border-radius: 12px;
+    background-color: #f9fbfc;
+    color: #1a3b41;
+    max-width: 650px;
+    border: 1px solid #e1e8ea;
+    box-shadow: 0 4px 20px rgba(34, 87, 97, 0.08);
+    box-sizing: border-box;
+
+    .titlecb {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        font-weight: 700;
+        margin: 0 0 12px 0 !important;
+        color: #1a3b41;
+    }
+
+    .titlecb2 {
+        font-size: 19px !important;
+        line-height: 1.4 !important;
+        font-weight: 400;
+        margin: 0 0 32px 0 !important;
+        color: #4f6b70;
+    }
+
+    .enlacecb {
+        padding: 15px 32px;
+        background-color: #4ca8b1;
+        color: white !important;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        border-bottom: none !important;
+        transition: all 0.3s ease;
+
+        &:after {
+            content: "\2192";
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+    }
+
+}

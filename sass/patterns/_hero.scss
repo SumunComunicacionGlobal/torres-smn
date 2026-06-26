@@ -1,0 +1,22 @@
+#hero {
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: var(--wp--preset--spacing--20);
+        background-color: var(--wp--preset--color--primary-100);
+        opacity: 0.4;
+        z-index: 1;
+    }
+}
+
+.home #hero {
+    position: relative;
+}
+
+.single-equipo #hero {
+    height: 45vw;
+}

@@ -1,0 +1,64 @@
+@use '../abstracts/mixins' as *;
+
+.wp-block-cb-carousel {
+    margin-bottom: var(--wp--custom--layout--gap);
+
+    &.text-slider {
+        margin-bottom: 0;
+        p {
+            margin: 0;
+        }
+    }
+
+    .slick-next, .slick-prev {
+        top: calc(100% + 1rem);
+        color: var(--wp--preset--color--neutral-white);
+        width: 3.5rem;
+        height: 3.5rem;
+        z-index: 2;
+
+        &::before {
+            content: url("assets/icons/arrow-right.svg");
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            border: 1px solid;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            color: var(--wp--preset--color--neutral-white);
+        }
+    }
+
+    .slick-next {
+        @media ($below-mobile-xs) {
+            right: 0;
+        } 
+    }
+    .slick-prev {
+        @media ($below-mobile-xs) {
+            left: 0;
+        } 
+    }
+
+    .slick-prev::before {
+        rotate: 180deg;
+    }
+
+    .slick-dots li button:before {
+        color: var(--wp--preset--color--neutral-white);
+        font-size: 1rem;
+        
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: var(--wp--preset--color--neutral-white);
+    }
+}
+
+.wp-block-cb-carousel .slick-next:before, .wp-block-cb-carousel .slick-prev:before {
+    color: var(--wp--preset--color--neutral-white);
+}

@@ -1,0 +1,38 @@
+{
+  "name": "_smn_hybrid",
+  "version": "1.0.0",
+  "description": "Theme WP _Sumun Hybrid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SumunComunicacionGlobal/smn_hybrid.git"
+  },
+  "keywords": [
+    "sass",
+    "wordpress",
+    "woocommerce"
+  ],
+  "author": "Alvaro Rubioc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SumunComunicacionGlobal/smn_hybrid/issues"
+  },
+  "homepage": "https://github.com/SumunComunicacionGlobal/smn_hybrid#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^31.7.0",
+    "@wordpress/stylelint-config": "^23.40.0",
+    "dir-archiver": "^2.2.0",
+    "rtlcss": "^4.3.0",
+    "sass": "1.77.8",
+    "stylelint": "^16.9.0",
+    "uglify-js": "^3.19.0"
+  },
+  "scripts": {
+    "watch": "npm run watch:css",
+    "watch:css": "sass --watch sass:./ custom-blocks:custom-blocks --style=compressed",
+    "compile:css": "sass sass:./ custom-blocks:custom-blocks --style=compressed",
+    "compile:js": "uglifyjs assets/js/*.js > assets/js/_sumun.min.js",
+    "bundle": "dir-archiver --src . --dest ../_sumun.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
+    "sync": "browser-sync start --proxy 'https://torres.local/' --files ['**/*.php', '*.*']",
+    "dev": "npm run watch:css & npm run sync"
+  }
+}

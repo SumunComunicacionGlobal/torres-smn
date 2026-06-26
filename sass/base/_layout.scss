@@ -1,0 +1,129 @@
+@use '../abstracts/mixins' as *;
+
+@media ($above-tablet) {
+    body {
+        --wp--style--root--padding-right: 4rem;
+        --wp--style--root--padding-left: 4rem;
+    }  
+}
+
+body .is-layout-flow {
+
+    & > .wp-block-image.alignright {
+        margin-inline-start: 0;
+    }
+
+    & > .wp-block-image.alignleft {
+        margin-inline-end: 0;
+    }
+} 
+
+body.single,
+body.wp-singular {
+
+    main {
+        z-index: 1;
+    }
+}
+
+:where(.wp-block-group.has-background) {
+    padding: var(--wp--custom--layout--gap);
+}
+
+:root :where(.wp-block-cover) {
+    padding-left: var(--wp--style--root--padding-left);
+    padding-right: var(--wp--style--root--padding-right);
+}
+
+#masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+footer.wp-block-template-part {
+    margin-block-start: 0;
+    font-size: 1rem;
+}
+
+@media ($below-tablet) {
+    .cabecera-podcast {
+        flex-direction: column;
+        align-items: center;
+    }
+    .un-podcast-de-torres {
+        gap: var(--wp--preset--spacing--10);
+    }
+}
+
+body.single-podcast .wp-block-post-content > .wp-block-embed:first-child {
+    margin-block-start: -12rem;
+    position: relative;
+}
+
+.opiniones-badge {
+    position: absolute;
+    z-index: 2;
+    top: 10%;
+    left: 0;
+
+    + .wp-block-image {
+        margin-left: 10%;
+        margin-right: 5%;
+    }
+}
+
+.opiniones-video-link {
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    right: 0;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+#colophon {
+
+    @media ($below-tablet) {
+        text-align: center;
+
+        .wp-block-cover__inner-container > .wp-block-group.is-layout-flex {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wp-block-navigation__container {
+
+            &.is-vertical {
+                align-items: center;
+            }
+            &:not(.is-vertical) {
+                justify-content: center;
+            }
+        }
+
+        .wp-block-social-links {
+            justify-content: center;
+        }
+
+    }
+
+}
+
+.ti-widget {
+    margin-bottom: var(--wp--preset--spacing--60) !important;
+}
+
+@media ($below-mobile) {
+    :root {
+        --wp--preset--spacing--60: 2rem;
+        --wp--preset--spacing--70: 2rem;
+        --wp--preset--spacing--80: 2rem;
+        --wp--preset--spacing--90: 3rem;
+        // --wp--preset--spacing--100: 3rem;
+    }
+}

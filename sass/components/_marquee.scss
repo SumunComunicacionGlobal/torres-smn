@@ -1,0 +1,98 @@
+/****
+	* Author: Lex From Techies Reviews
+	* Link: https://youtube.com/@techiesreviews
+*****/
+
+/** optional fix, remove if not needed*/
+.infinite-scroll figure{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.hide-overflow{
+	overflow: hidden;
+}
+	
+.infinite-scroll {
+	/**** Settings */
+	--marquee-duration: 20s; /*##ms, ##s*/
+	--marquee-gap: var(--wp--preset--spacing--xl); /* can be any spacing */
+ 	user-select: none; /* none, auto*/
+	/* end */
+	overflow: hidden;
+	max-width: 100%;
+        gap: var(--marquee-gap, var(--wp--style--gap, 1em));
+	--marquee-play-state: running; /*running, paused*/
+	--marquee-direction: normal; /*normal, reverse, alternate, alternate-reverse*/
+	--marquee-timeline: auto;
+	--marquee-timing: linear;
+	--marquee-iteration: infinite;
+	--marquee-mode: none;
+	--marquee-animation: marquee-horizontal;
+	--marque-translate: translateX(0);
+}
+
+@media (prefers-reduced-motion) {
+	.infinite-scroll{
+		--marquee-duration: 500s;
+	}
+}
+	
+.infinite-scroll.is-faded{
+	mask-image: linear-gradient(
+					to left, 
+					rgba(0, 0, 0, 0) 0%, 
+					rgb(0, 0, 0) 20%, 
+					rgb(0, 0, 0) 80%, 
+					rgba(0, 0, 0, 0) 100%
+				);
+}
+	
+.infinite-scroll.is-reversed{
+	--marquee-direction: reverse;
+}
+	
+.infinite-scroll.is-rotated{
+	transform: rotate(2.5deg);
+	max-width: 110%;
+	margin-left: -5%;
+}
+
+.infinite-scroll.is-slower>*{
+	animation-duration: calc(var(--marquee-duration)*2);
+}
+	
+.infinite-scroll.is-faster>*{
+	animation-duration: calc(var(--marquee-duration)/2);
+}
+
+.infinite-scroll.on-hover-paused:hover{
+ --marquee-play-state: paused; /*running, paused*/
+}
+	
+.infinite-scroll>*{
+    animation-name: var(--marquee-animation);
+    animation-duration: var(--marquee-duration);
+    animation-timing-function: var(--marquee-timing);
+    animation-iteration-count: var(--marquee-iteration);
+    animation-direction: var(--marquee-direction);
+    animation-play-state: var(--marquee-play-state);
+    animation-fill-mode: var(--marquee-mode);
+    animation-timeline: var(--marquee-timeline);
+    flex-shrink: 0;
+    position: relative;
+    transform: var(--marquee-translate);
+}
+
+.infinite-scroll>*>* {
+    flex-shrink: 0;
+}
+
+/* add horizontal*/
+@keyframes marquee-horizontal{
+	to {
+	    transform: translateX(calc(-100% - var(--marquee-gap, var(--wp--style--gap, 1em))));
+	}
+}

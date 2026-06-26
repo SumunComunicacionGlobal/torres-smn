@@ -1,0 +1,81 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	font-size: var(--wp--preset--font-size--body );
+	border-radius: var(--wp--custom--border-radius--05);
+	border: 1px solid var(--wp--preset--color--neutral-30);
+	color: var(--wp--preset--color--foreground);
+	background-color: var(--wp--preset--color--neutral-white);
+	line-height: 1;
+	padding: 12px var(--wp--preset--spacing--10);
+	width: 100%;
+
+	&:focus {
+		outline-color: var(--wp--preset--color--accent);
+	}
+
+	&::placeholder {
+		color: inherit;
+		opacity: 1; /* Firefox */
+	}
+	  
+	&::-ms-input-placeholder { /* Edge 12 -18 */
+		color: inherit;
+	}
+
+	&:disabled {
+		opacity: .5;
+	}
+
+}
+
+select {
+	width: 100%;
+	border-radius: var(--wp--custom--border-radius--05);
+	border: 1px solid var(--wp--preset--color--neutral-30);
+	padding: 12px var(--wp--preset--spacing--10);
+}
+
+textarea {
+	width: 100%;
+}
+
+button[type="submit"], input[type="submit"] {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--neutral-white);
+	font-weight: bold;
+	border: 0;
+	border-radius: var(--wp--custom--border-radius--rounded);
+	padding: calc(0.75rem + 4px) 1.5em;
+	min-width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		margin-left: .5rem;
+		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
+		mask-image: url(./assets/icons/arrow-right.svg);
+		mask-size: cover;
+		mask-repeat: no-repeat;
+		transition: padding-left 0.3s ease;
+	}
+}

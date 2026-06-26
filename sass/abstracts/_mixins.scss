@@ -1,0 +1,78 @@
+// Extra Small (mobile)
+$below-mobile-xs: "max-width:480px";
+$above-mobile-xs: "min-width:481px";
+
+// Small (tablet)
+$below-mobile: "max-width:781px"; // de 0 a 781px de ancho se muestra
+$above-mobile: "min-width:782px"; // de 782px en adelante se muestra
+
+// Medium (landscape tablet)
+$below-tablet: "max-width:991px";
+$above-tablet: "min-width:992px";
+
+// Large (content max-width)
+$below-laptop: "max-width:1120px";
+$above-laptop: "min-width:1121px";
+
+// Extra Large (content max-width)
+$below-desktop: "max-width:1439px";
+$above-desktop: "min-width:1440px";
+
+
+// Mixin para clases de ocultar en diferentes tamaños de dispositivos
+@mixin hide-on-device($device) {
+  @if $device == mobile {
+    @media ($below-mobile) {
+      .hidden-mobile {
+        display: none !important;
+      }
+    }
+  } @else if $device == tablet {
+    @media ($above-mobile) and ($below-tablet) {
+      .hidden-tablet {
+        display: none !important;
+      }
+    }
+  } @else if $device == laptop {
+    @media ($above-tablet) and ($below-desktop) {
+      .hidden-laptop {
+        display: none !important;
+      }
+    }
+  } @else if $device == desktop {
+      @media ($above-desktop) {
+        .hidden-desktop {
+          display: none !important;
+        }
+      }
+  } @else {
+    @warn "El dispositivo no es válido. Use 'mobile', 'tablet', o 'desktop'.";
+  }
+}
+// Mostrar los elementos con opacidad en el editor
+.is-root-container {
+    .hidden-mobile, .hidden-tablet, .hidden-laptop, .hidden-desktop {
+        display: block !important;
+        opacity: 0.4 !important;
+
+        &.is-layout-flex {
+            display: flex !important;
+        }
+    }
+}
+
+// Uso del mixin para generar las clases
+@include hide-on-device(mobile);
+@include hide-on-device(tablet);
+@include hide-on-device(laptop);
+@include hide-on-device(desktop);
+
+// Loops to enumerate the classes for grid columns.
+@for $i from 1 through 9 {
+
+	.grid-columns-#{$i} {
+		display: grid;
+		gap: var(--space-3);
+		grid-template-columns: repeat($i, 1fr);
+	}
+}

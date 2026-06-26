@@ -1,0 +1,39 @@
+@use '../abstracts/mixins' as *;
+
+.wpcf7-acceptance .wpcf7-list-item {
+	margin: 0;
+}
+
+.wpcf7 {
+
+	p {
+		margin-block-start: 0;
+		margin-block-end: .5em;
+	}
+
+	@media( $above-tablet ) {
+
+		.form-row {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: var(--wp--custom--layout--gap-small, 0.5rem);
+
+			.form-col-50 {
+				flex: 1;
+				width: 50%;
+			}
+
+		}
+
+	}
+
+}
+
+.wpcf7 label {
+	font-size: var(--wp--preset--font-size--small);
+	
+	> .wpcf7-form-control-wrap {
+		display: block;
+		margin-top: 0.25rem;
+	}
+}

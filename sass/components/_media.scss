@@ -1,0 +1,95 @@
+@use '../abstracts/mixins' as *;
+
+.single-post .wp-block-post-content figure img {
+    border-radius: var(--wp--custom--border-radius--1);
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wp-block-embed,
+.wp-block-video,
+.wp-block-image img,
+.wp-block-post-featured-image img,
+.wp-block-media-text .wp-block-media-text__media,
+iframe,
+.is-style-before-after {
+    border-radius: var(--wp--custom--border-radius--1);
+    overflow: hidden;
+}
+
+.wp-block-post-featured-image {
+    border-radius: var(--wp--custom--border-radius--05);
+}
+
+.is-style-before-after {
+
+    + p:first-of-type {
+        text-align: center;
+        background-color: var(--wp--preset--color--neutral-white);
+        padding: var(--wp--preset--spacing--05) var(--wp--preset--spacing--05);
+        border-radius: var(--wp--custom--border-radius--1);
+        font-size: var(--wp--preset--font-size--small);
+        margin-top: var(--wp--preset--spacing--10);
+    }
+
+    .before-wrapper,
+    .after-wrapper,
+    .separator {
+        margin-block-start: 0;
+    }
+
+}
+
+.wp-block-embed.is-type-video,
+.wp-block-video {
+    position: relative;
+    cursor: pointer;
+
+    iframe,
+    video {
+        cursor: pointer !important;
+    }
+}
+
+figure.wp-block-embed.is-type-video,
+figure.wp-block-embed.is-type-video .wp-block-embed__wrapper,
+figure.wp-block-embed.is-type-video iframe {
+    cursor: pointer !important;
+}
+
+figure.wp-block-embed.is-type-video .wp-block-embed__wrapper {
+    position: relative;
+}
+
+figure.wp-block-embed.is-type-video .smn-video-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: var(--wp--custom--border-radius--1);
+    background-color: rgba(0, 0, 0, 0.3);
+    background-image: url("./assets/icons/play.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15% auto;
+    box-shadow: inset 0 0 0 .5rem rgba(255, 255, 255, 0.95);
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: .9;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+figure.wp-block-embed.is-type-video.is-playing .smn-video-overlay,
+.wp-block-video.is-playing .smn-video-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

@@ -1,0 +1,111 @@
+@use '../abstracts/mixins' as *;
+
+.position-relative,
+.wp-block-post {
+    position: relative;
+}
+
+// In Query Loop cards, title animations can inject inline transform on h2,
+// creating a containing block that prevents the stretched link from filling the card.
+.wp-block-query .wp-block-post .wp-block-post-title,
+.wp-block-query .wp-block-post .wp-block-cover__inner-container,
+.wp-block-query .wp-block-post .wp-block-cover__inner-container > .wp-block-group {
+    position: static;
+    transform: none !important;
+}
+
+
+
+a.stretched-link, 
+.stretched-link > a,
+.wp-block-post-title a {
+    position: static !important;
+    overflow: visible !important;
+    transform: none !important;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: auto;
+        background-color: rgba(255,255,255,0);
+        transition: background-color .3s ease-in-out;
+    } 
+
+    &:hover::after {
+        background-color: rgba(255,255,255,0.15);
+    }
+}
+
+.column-reverse-mobile {
+    @media ($below-tablet) {
+        flex-direction: column-reverse;
+        display: flex;
+    }
+}
+
+.dnone,
+.d-none {
+    display: none !important;
+}
+
+.mt-0 {
+    margin-block-start: 0;
+}
+
+.mt-1 {
+    margin-block-start: var(--wp--preset--spacing--10);
+    margin-top: var(--wp--preset--spacing--10);
+}
+
+.mt-2 {
+    margin-block-start: var(--wp--preset--spacing--20);
+    margin-top: var(--wp--preset--spacing--20);
+}
+
+.mt-3 {
+    margin-block-start: var(--wp--preset--spacing--30);
+    margin-top: var(--wp--preset--spacing--30);
+}
+
+.mb-1 {
+    margin-block-end: var(--wp--preset--spacing--10);
+}
+
+.mb-2 {
+    margin-block-end: var(--wp--preset--spacing--20);
+}
+
+.mb-3 {
+    margin-block-end: var(--wp--preset--spacing--30);
+}
+
+.d-z-index-2 {
+    z-index: 2;
+    position: relative;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+[style*="--negative-margin-top-"] {
+    position: relative;
+}
+
+.is-position-sticky {
+    z-index: 12;
+}
+
+.w-100,
+.wp-block-image.w-100 img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.h-100,
+.wp-block-image.h-100 img {
+    height: 100%;
+    object-fit: cover;
+}

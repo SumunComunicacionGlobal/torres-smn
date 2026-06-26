@@ -1,0 +1,120 @@
+@use '../abstracts/mixins' as *;
+
+ol.has-background, ul.has-background {
+    padding: 0;
+}
+
+ul.is-style-separator-list,
+ol.is-style-separator-list,
+ul.is-style-arrow-separator-list,
+ul.is-style-arrow-mini-separator-list,
+ul.is-style-check-separator-list {
+	
+	&ul {
+	    padding: 0;
+		list-style: none;
+	}
+
+    li {
+        border-bottom: 1px solid var(--wp--preset--color--neutral-30);
+		padding: var(--wp--preset--spacing--10) 0;
+
+        a {
+            text-decoration: none;
+            width: 100%;
+            transition: padding-left .2s ease-in;
+
+            &:hover {
+                cursor: pointer;
+                padding-left: var(--wp--preset--spacing--10);
+            }
+        }
+    }
+}
+
+
+ul.is-style-arrow-list,
+ul.is-style-check-list,
+ul.is-style-arrow-separator-list,
+ul.is-style-arrow-mini-separator-list,
+ul.is-style-check-separator-list {
+	list-style: none;
+	position: relative;
+	padding: 0;
+
+	li {
+		position: relative; 
+		padding: 0 0 var(--wp--preset--spacing--10) 32px;
+
+		img {
+			margin: 0 var(--wp--preset--spacing--10);
+		}
+	}
+
+	li:before{
+		content: url("assets/icons/arrow-list.svg");
+		position: absolute;
+		top: 6px;
+		left: 0;
+	}
+
+	a {
+		transition: padding-left 0.3s ease;
+        text-decoration: none;
+		&:hover {
+			padding-left: var(--wp--preset--spacing--10);
+			transition: padding-left 0.3s ease;
+		}
+	}
+}
+
+ul.is-style-arrow-separator-list {
+    li {
+        padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
+        &::before {
+            top: calc(var(--wp--preset--spacing--10) + 6px);
+        }
+    }
+}
+
+ul.is-style-arrow-mini-separator-list {
+
+	li:not(:first-child) {
+		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
+	}
+
+	li:before{
+		content: url("assets/icons/arrow-right.svg");
+		top: auto;
+		left: 0;
+	}
+}
+
+ul.is-style-check-separator-list,
+ul.is-style-check-list {
+
+	li:before{
+		content: url("assets/icons/check.svg");
+		width: 24px;
+		height: 24px;
+		top: auto;
+		left: 0;
+	}
+}
+
+.hero-check-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--custom--layout--gap);
+	font-size: 1rem;
+	row-gap: var(--wp--preset--spacing--05)
+
+	li {
+		padding-bottom: 0 !important;
+	}
+
+	@media ($below-tablet) {
+		flex-direction: column;
+	}
+
+}

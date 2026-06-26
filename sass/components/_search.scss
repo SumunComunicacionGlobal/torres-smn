@@ -1,0 +1,27 @@
+.wp-block-search__inside-wrapper {
+	border-radius: var(--wp--custom--border-radius--md);
+	padding: 0;
+	
+	input[type="search"] {
+		border: 0;
+		padding: 7px var(--wp--preset--spacing--10);
+	}
+}
+
+:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) {
+	border: 2px solid;
+
+	.has-white-color &, .has-background-color & {
+		.wp-block-search__button {
+
+			&.wp-element-button {
+				background-color: var(--wp--preset--color--white);
+				padding: calc(0.5rem + 4px);
+			}
+	
+			svg {
+				fill: var(--wp--preset--color--primary-80);
+			}
+		}
+	}	
+}

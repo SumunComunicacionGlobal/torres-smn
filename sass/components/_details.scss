@@ -1,0 +1,87 @@
+details,
+.rank-math-list-item {
+    position: relative;
+    background: var(--wp--preset--color--neutral-white, #ffffff);
+    border-radius: var(--wp--custom--border-radius--1, 16px);
+    box-shadow: var(--wp--custom--box-shadow--1, 0 3px 10px 0 rgb(0 0 0 / 3%));
+    overflow: hidden;
+    // max-height: 4.5rem;
+    transition: max-height 0.5s ease, box-shadow 0.3s ease;
+
+    summary,
+    .rank-math-question {
+        padding: var(--wp--preset--spacing--20, 2rem);
+        margin: 0;
+        font-size: var(--wp--preset--font-size--body, 1rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--wp--custom--layout--gap-small, 0.5rem);
+        cursor: pointer;
+        list-style: none;
+        font-weight: 700;
+
+
+        &::after {
+            content: "+";
+            width: 1.5rem;
+            height: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--wp--preset--color--neutral-100, #171f2b);
+            color: var(--wp--preset--color--neutral-white, #ffffff);
+            line-height: 1;
+            flex: 0 0 auto;
+            transition: transform 0.2s ease;
+        }
+    }
+
+    > *:not(summary):not(.rank-math-question) {
+        display: block;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
+        transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+        opacity: 1 !important;
+    }
+
+    > *:not(summary):not(.rank-math-question):not(.rank-math-answer),
+    .rank-math-answer > * {
+        margin-block-start: var(--wp--preset--spacing--10, 1rem) !important;
+        margin-block-end: var(--wp--preset--spacing--10, 1rem) !important;
+        padding: 0 var(--wp--preset--spacing--20, 2rem);
+    }
+
+    &[open],
+    &.active {
+        max-height: 200vh;
+
+        > summary::after,
+        .rank-math-question::after {
+            content: "-";
+        }
+
+        > :not(summary) {
+            max-height: 120vh;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    }
+}
+
+details {
+
+    summary {
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+    }
+
+}

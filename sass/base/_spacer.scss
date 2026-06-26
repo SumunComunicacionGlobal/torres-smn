@@ -1,0 +1,23 @@
+@use '../abstracts/mixins' as *;
+
+// Dar estilos y agregar la medida en px al core-block/spacer
+.components-resizable-box__container.block-library-spacer__resize-container {
+    background-color: var(--wp--preset--color--primary-30);
+
+    &:before {
+        content: attr(data-spaceheight);
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+}
+
+.wp-block-spacer {
+    margin-block-start: 0;
+    
+    @media ($below-mobile) {
+        max-height: 32px;
+        height: 32px;
+    }
+}

@@ -1,0 +1,45 @@
+@use '../abstracts/mixins' as *;
+
+.wp-block-quote {
+    
+    &.is-style-quote-card {
+        border: 1px solid;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--wp--preset--color--background);
+
+        cite {
+            margin-top: 0;
+            border-bottom: 1px solid;
+            padding: var(--wp--custom--layout--padding) var(--wp--custom--layout--gap);
+            order: 0;
+        }
+        & > * {
+            padding: var(--wp--custom--layout--gap);
+            order: 1;
+        }
+    }
+
+    &.is-style-plain {
+        padding-left: 0 !important;
+        
+        cite {
+            text-align: end;
+            font-size: .666em;
+            text-transform: uppercase;
+        }
+
+        @media ($below-mobile) { 
+            h2 {
+                font-size: var(--wp--preset--font-size--heading-3) !important;
+            }
+
+            cite {
+                font-size: var(--wp--preset--font-size--small) !important;
+            }
+        }
+    }
+
+}

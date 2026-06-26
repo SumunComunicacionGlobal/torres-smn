@@ -1,0 +1,98 @@
+@use '../abstracts/mixins' as *;
+
+.wp-block-query {
+    .wp-block-post {
+        a {
+            text-decoration: none;
+            overflow: hidden;
+            
+            img.wp-post-image {    
+                transition: transform 1s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .card-blog {
+            position: relative;
+
+            .taxonomy-category.wp-block-post-terms {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                padding: .25rem 0.5rem;
+                border-radius: var(--wp--custom--border-radius--rounded);
+                z-index: 1;
+                background-color: var(--wp--preset--color--primary);
+
+                
+            }
+        }
+
+        .wp-block-post-excerpt__more-text {
+            display: flex;
+            margin-top: var(--wp--preset--spacing--20);
+            
+        }
+
+        .wp-block-cover {
+            padding: var(--wp--preset--spacing--30);
+            align-items: flex-end;
+
+            .wp-block-post-title.has-background {
+                display: inline-block;
+                max-width: 300px;
+
+                a {
+                    display: block;
+                }
+            }
+        }
+
+        &.type-podcast {
+            .wp-block-cover {
+                align-items: flex-start;
+            }
+        }
+    }
+}
+
+
+.wp-block-categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    
+    li.cat-item {
+        a {
+            text-decoration: none;
+            background-color: inherit;
+            border-radius: var(--wp--custom--border-radius--rounded);
+            color: var(--wp--preset--color--neutral-white);
+            padding: calc(0.5rem + 0px) 2rem;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            height: 2.5rem;
+
+            &:hover {
+                background-color: var(--wp--preset--color--primary-50);
+                color: var(--wp--preset--color--neutral-white);
+            }
+        }
+    }
+}
+
+
+.is-style-is-related-posts .taxonomy-category.has-heading-4-font-size > a {
+    color: initial;
+    text-decoration: none;
+}
+
+.wp-block-post-terms {
+    display: inline-block;
+}

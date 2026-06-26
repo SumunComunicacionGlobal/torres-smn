@@ -1,0 +1,118 @@
+@use '../abstracts/mixins' as *;
+
+mark {
+    background-color: transparent;
+}
+
+.wp-block-post-title a {
+	text-decoration: none;
+}
+
+[class*="has-heading-"][class*="-font-size"] {
+    line-height: var(--wp--custom--line-height--headings);
+    font-family: var(--wp--preset--font-family--font-heading);
+}
+
+.has-heading-1-font-size,
+.has-heading-2-font-size {
+    line-height: var(--wp--custom--line-height--tiny) !important;
+}
+
+body.page.grupo-paginas-tratamiento,
+body.single-podcast {
+    h2 {
+        font-size: var(--wp--preset--font-size--heading-2-reduced);
+    }
+}
+
+.is-style-eyebrow,
+.is-style-rounded-eyebrow {
+    font-size: var(--wp--preset--font-size--body) !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.rounded-eyebrow__inner {
+    display: inline-block;
+    font-size: var(--wp--preset--font-size--small) !important;
+    padding: .5em 1.5em;
+    border-radius: var(--wp--custom--border-radius--rounded);
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid var(--wp--preset--color--neutral-white);
+}
+
+.numero-episodio {
+    display: block;
+    margin-bottom: .5em;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.colaborador {
+    display: block;
+    margin-top: .25em;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 64px;
+        border-top: 1px solid lightgray;
+        margin-top: .75em;
+        margin-bottom: .75em;
+    }
+}
+
+.wp-block-post-terms {
+    font-weight: 700;
+}
+
+@media ($below-mobile) {
+    p, .wp-block-heading {
+
+        &.is-style-center-on-mobile,
+        &.center-on-mobile {
+            text-align: center;
+        }
+
+    }
+
+    .wp-block-buttons {
+
+        &.is-style-center-on-mobile,
+        &.center-on-mobile {
+            justify-content: center;
+        }
+
+    }
+
+    .wp-block-group {
+
+        &.is-style-center-on-mobile,
+        &.center-on-mobile {
+            justify-content: center;
+        }
+
+        &.is-vertical {
+
+            .is-style-center-on-mobile,
+            .center-on-mobile {
+                align-items: center;
+            }
+            
+        }
+
+    }
+
+}
+
+@media ($below-mobile) {
+    :root .has-text-align-right {
+        text-align: center;
+    }
+    .is-content-justification-right {
+        justify-content: center !important;
+    }
+}

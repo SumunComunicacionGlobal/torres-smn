@@ -1,0 +1,6 @@
+node_modules
+.zip
+tmp
+.npm-debug.log
+.sass-cache
+.package-lock.json

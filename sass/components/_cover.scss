@@ -1,0 +1,15 @@
+.wp-block-cover {
+    &.is-style-cover-contain-background { 
+        .wp-block-cover__image-background {
+            object-fit: contain;
+        }
+    }
+
+    &:not(.alignfull) {
+        border-radius: var(--wp--custom--border-radius--1);
+    }
+
+    &#hero {
+        align-items: flex-end;
+    }
+}
