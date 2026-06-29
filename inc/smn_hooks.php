@@ -122,9 +122,32 @@ function sumun_format_post_title_block( $block_content, $block ) {
         return $block_content;
     }
 
+    
+
     $post_id = ! empty( $block['attrs']['postId'] ) ? (int) $block['attrs']['postId'] : get_the_ID();
     if ( ! $post_id ) {
         return $block_content;
+    }
+
+    $has_card_title_class = false;
+    if ( ! empty( $block['attrs']['className'] ) && preg_match( '/(?:^|\s)card-title(?:\s|$)/', $block['attrs']['className'] ) ) {
+        $has_card_title_class = true;
+    } elseif ( strpos( $block_content, 'card-title' ) !== false ) {
+        $has_card_title_class = true;
+    }
+
+    if ( 'page' === get_post_type( $post_id ) && $has_card_title_class ) {
+        $card_title = trim( (string) get_post_meta( $post_id, 'card_title', true ) );
+
+        if ( '' !== $card_title ) {
+            $card_title = esc_html( $card_title );
+
+            if ( preg_match( '/<a\b[^>]*>.*?<\/a>/is', $block_content ) ) {
+                return preg_replace( '/(<a\b[^>]*>)(.*?)(<\/a>)/is', '$1' . $card_title . '$3', $block_content, 1 );
+            }
+
+            return preg_replace( '/(^\s*<[^>]+>)(.*?)(<\/[^>]+>\s*$)/is', '$1' . $card_title . '$3', $block_content, 1 );
+        }
     }
 
     $formatted_title = sumun_get_formatted_podcast_title( get_the_title( $post_id ), $post_id );
