@@ -7,6 +7,10 @@ wp.domReady( () => {
 			isDefault: true,
 		},
 		{
+			name: 'no-style-list',
+			label: 'Sin estilo',
+		},
+		{
 			name: 'separator-list',
 			label: 'Separador',
 		},

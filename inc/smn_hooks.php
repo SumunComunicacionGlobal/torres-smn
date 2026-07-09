@@ -627,6 +627,47 @@ function sumun_add_vimeo_params_to_embed( $block_content, $block ) {
     );
 }
 
+add_filter( 'render_block', 'sumun_force_full_image_in_media_text', 12, 2 );
+function sumun_force_full_image_in_media_text( $block_content, $block ) {
+    if ( empty( $block['blockName'] ) || 'core/media-text' !== $block['blockName'] ) {
+        return $block_content;
+    }
+
+    $default_media_id = 0;
+    if ( ! empty( $block['attrs']['mediaId'] ) ) {
+        $default_media_id = (int) $block['attrs']['mediaId'];
+    }
+
+    $processor = new WP_HTML_Tag_Processor( $block_content );
+    $updated = false;
+
+    while ( $processor->next_tag( 'img' ) ) {
+        $img_class = (string) $processor->get_attribute( 'class' );
+        $image_id = $default_media_id;
+
+        if ( preg_match( '/\bwp-image-(\d+)\b/', $img_class, $matches ) ) {
+            $image_id = (int) $matches[1];
+        }
+
+        if ( $image_id > 0 ) {
+            $full_src = wp_get_attachment_image_url( $image_id, 'full' );
+            if ( ! empty( $full_src ) ) {
+                $processor->set_attribute( 'src', esc_url( $full_src ) );
+            }
+        }
+
+        $processor->remove_attribute( 'srcset' );
+        $processor->remove_attribute( 'sizes' );
+        $updated = true;
+    }
+
+    if ( ! $updated ) {
+        return $block_content;
+    }
+
+    return $processor->get_updated_html();
+}
+
 function grunwell_video_embed( $attr, $content='' ) {
   if ( ! isset( $attr['poster'] ) && has_post_thumbnail() ) {
     /*
