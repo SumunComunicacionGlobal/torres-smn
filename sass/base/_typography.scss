@@ -76,6 +76,10 @@ body.single-podcast {
     font-weight: 700;
 }
 
+.no-underline a {
+    text-decoration: none;
+}
+
 @media ($below-mobile) {
     p, .wp-block-heading {
 
