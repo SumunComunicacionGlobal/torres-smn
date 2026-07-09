@@ -568,6 +568,65 @@ function sumun_unwrap_before_after_group_images( $block_content, $block ) {
     return preg_replace( $pattern, '$2', $block_content );
 }
 
+add_filter( 'render_block', 'sumun_add_vimeo_params_to_embed', 10, 2 );
+function sumun_add_vimeo_params_to_embed( $block_content, $block ) {
+    if ( empty( $block['blockName'] ) ) {
+        return $block_content;
+    }
+
+    $is_vimeo_block = 'core-embed/vimeo' === $block['blockName'];
+
+    if ( ! $is_vimeo_block && 'core/embed' === $block['blockName'] ) {
+        $provider = isset( $block['attrs']['providerNameSlug'] ) ? (string) $block['attrs']['providerNameSlug'] : '';
+        $is_vimeo_block = 'vimeo' === $provider;
+    }
+
+    if ( ! $is_vimeo_block || false === strpos( (string) $block_content, 'player.vimeo.com/video/' ) ) {
+        return $block_content;
+    }
+
+    return preg_replace_callback(
+        '/(<iframe\b[^>]*\ssrc=("|\'))([^"\']+)(\2[^>]*>)/i',
+        function( $matches ) {
+            $src = (string) $matches[3];
+
+            if ( false === strpos( $src, 'player.vimeo.com/video/' ) ) {
+                return $matches[0];
+            }
+
+            $src = add_query_arg(
+                array(
+                    'title'  => '0',
+                    'byline' => '0',
+                    'portrait' => '0',
+                    // 'controls' => '0',
+                    'dnt' => '1',
+                    'vimeo_logo' => '0',
+                    'interactive_markers' => '0',
+                    'fullscreen' => '0',
+                    'color' => '0e4f6d',
+                    'colors' => '226486,96D8D8,ffffff,142f42',
+                    'chromecast' => '0',
+                    'airplay' => '0',
+                    'chapters' => '0',
+                    'cc' => '0',
+                    'badge' => '0',
+                    'audio_track' => '0',
+                    'ask_ai' => '0',
+                    'speed' => '0',
+                    'pip' => '0',
+                    'transcript' => '0',
+                    'loop' => '1',
+                ),
+                $src
+            );
+
+            return $matches[1] . esc_url( $src ) . $matches[4];
+        },
+        $block_content
+    );
+}
+
 function grunwell_video_embed( $attr, $content='' ) {
   if ( ! isset( $attr['poster'] ) && has_post_thumbnail() ) {
     /*
@@ -584,6 +643,8 @@ function grunwell_video_embed( $attr, $content='' ) {
   return wp_video_shortcode( $attr, $content );
 }
 add_shortcode( 'video', 'grunwell_video_embed' );
+
+
 
 function smn_add_icon_class_to_button( $block_content, $block ) {
     if ( empty( $block['blockName'] ) || 'core/button' !== $block['blockName'] ) {
