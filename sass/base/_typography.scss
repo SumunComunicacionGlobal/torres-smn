@@ -129,8 +129,12 @@ body.single-podcast {
 }
 
 .is-style-icon-left {
-    padding-left: 3rem;
+    padding-left: 2.5rem;
     position: relative;
+
+    a {
+        text-decoration: none;
+    }
 
     &:before {
         content: "";
