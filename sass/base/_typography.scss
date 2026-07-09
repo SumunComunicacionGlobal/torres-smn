@@ -127,3 +127,41 @@ body.single-podcast {
         justify-content: center !important;
     }
 }
+
+.is-style-icon-left {
+    padding-left: 2rem;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--wp--preset--color--neutral-10);
+        border-radius: var(--wp--custom--border-radius--rounded);
+    }
+
+    &.icon-email {
+        &:before {
+            content: url("assets/icons/icono-email-contacto.svg");
+        }
+    }
+
+    &.icon-phone {
+        &:before {
+            content: url("assets/icons/icono-telefono-contacto.svg");
+        }
+    }
+
+    &.icon-whatsapp {
+        &:before {
+            content: url("assets/icons/icono-whatsapp-contacto.svg");
+        }
+    }
+}

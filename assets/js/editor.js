@@ -73,6 +73,10 @@ wp.domReady( () => {
 			name: 'rounded-eyebrow',
 			label: 'Ceja Redondeada',
 		},
+		{
+			name: 'icon-left',
+			label: 'Icono a la izquierda',
+		},
 	] );
 	wp.blocks.registerBlockStyle( 'core/heading', [
 		{
