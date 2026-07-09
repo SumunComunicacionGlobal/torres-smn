@@ -129,7 +129,7 @@ body.single-podcast {
 }
 
 .is-style-icon-left {
-    padding-left: 2rem;
+    padding-left: 3rem;
     position: relative;
 
     &:before {
@@ -138,8 +138,8 @@ body.single-podcast {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
