@@ -145,23 +145,26 @@ body.single-podcast {
         align-items: center;
         background-color: var(--wp--preset--color--neutral-10);
         border-radius: var(--wp--custom--border-radius--rounded);
+        background-size: 1rem;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     &.icon-email {
         &:before {
-            content: url("assets/icons/icono-email-contacto.svg");
+            background-image: url("assets/icons/icono-email-contacto.svg");
         }
     }
 
     &.icon-phone {
         &:before {
-            content: url("assets/icons/icono-telefono-contacto.svg");
+            background-image: url("assets/icons/icono-telefono-contacto.svg");
         }
     }
 
     &.icon-whatsapp {
         &:before {
-            content: url("assets/icons/icono-whatsapp-contacto.svg");
+            background-image: url("assets/icons/icono-whatsapp-contacto.svg");
         }
     }
 }
