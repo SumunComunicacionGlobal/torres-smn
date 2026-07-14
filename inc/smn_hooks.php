@@ -717,3 +717,17 @@ function smn_add_icon_class_to_button( $block_content, $block ) {
 }
 add_filter( 'render_block', 'smn_add_icon_class_to_button', 10, 2 );
 
+function smn_render_scroll_to_top_button() {
+    ?>
+    <button
+        type="button"
+        class="smn-scroll-top"
+        aria-label="Volver arriba"
+        title="Volver arriba"
+    >
+        <span aria-hidden="true">↑</span>
+    </button>
+    <?php
+}
+add_action( 'wp_footer', 'smn_render_scroll_to_top_button', 5 );
+

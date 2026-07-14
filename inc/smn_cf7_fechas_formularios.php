@@ -17,6 +17,7 @@ if (!defined('ABSPATH')) exit;
  */
 function cf7cc_get_clinics() {
     return [
+        'Cualquier clínica',
         'Torres Independencia',
         'Torres San José',
         'Torres Roma',
@@ -224,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const maxDate = "<?php echo esc_js($max->format('d/m/Y')); ?>";
     const disabledDates = <?php echo wp_json_encode($disabled_dates); ?>;
     const availableHours = <?php echo wp_json_encode($available_hours); ?>;
+    const anyClinicLabel = 'Cualquier clínica';
 	
 	console.group('CF7 Citas Clínicas - Debug');
 
@@ -355,7 +357,28 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const hours = availableHours?.[clinic]?.[weekday] || [];
+        let hours = [];
+        if (clinic === anyClinicLabel) {
+            const configuredAny = availableHours?.[anyClinicLabel]?.[weekday] || [];
+
+            if (configuredAny.length) {
+                hours = configuredAny;
+            } else {
+                const merged = [];
+                Object.keys(availableHours || {}).forEach(function (clinicName) {
+                    if (clinicName === anyClinicLabel) {
+                        return;
+                    }
+
+                    const clinicHours = availableHours?.[clinicName]?.[weekday] || [];
+                    merged.push.apply(merged, clinicHours);
+                });
+
+                hours = Array.from(new Set(merged)).sort();
+            }
+        } else {
+            hours = availableHours?.[clinic]?.[weekday] || [];
+        }
 		console.log('Horas encontradas:', hours);
 		console.groupEnd();
 
@@ -494,7 +517,7 @@ function cf7cc_validate_time($result, $tag) {
 
     $weekday = (int) $selected_date->format('N');
     $available_hours = cf7cc_get_available_hours();
-    $valid_hours = $available_hours[$clinic][$weekday] ?? [];
+    $valid_hours = cf7cc_get_valid_hours_for_clinic_day($clinic, $weekday, $available_hours);
 
     if (!in_array($time, $valid_hours, true)) {
         $result->invalidate($tag, 'La hora seleccionada no está disponible para esa clínica y fecha.');

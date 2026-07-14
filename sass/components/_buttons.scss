@@ -114,3 +114,43 @@ p + .wp-block-buttons {
 	}
 
 }
+
+.smn-scroll-top {
+	position: fixed;
+	left: 1rem;
+	bottom: 1rem;
+	width: 3rem;
+	height: 3rem;
+	border: 0;
+	border-radius: 999px;
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--neutral-white);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transform: translateY(0.5rem);
+	transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+	z-index: 999;
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--wp--preset--color--primary-30);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp--preset--color--neutral-white);
+		outline-offset: 2px;
+	}
+}

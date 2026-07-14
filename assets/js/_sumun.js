@@ -257,6 +257,39 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollTopButton = document.querySelector('.smn-scroll-top');
+
+  if (!scrollTopButton) {
+    return;
+  }
+
+  const toggleButtonVisibility = function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 300) {
+      scrollTopButton.classList.add('is-visible');
+      return;
+    }
+
+    scrollTopButton.classList.remove('is-visible');
+  };
+
+  toggleButtonVisibility();
+
+  window.addEventListener('scroll', toggleButtonVisibility, { passive: true });
+
+  scrollTopButton.addEventListener('click', function () {
+    const supportsSmoothScroll = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: supportsSmoothScroll ? 'smooth' : 'auto'
+    });
+  });
+});
+
 // Añade drag para los elementos con scroll horizontal
 document.addEventListener('DOMContentLoaded', (event) => {
     const sliders = document.querySelectorAll('.is-style-group-horizontal-scroll');
