@@ -17,6 +17,7 @@ if (!defined('ABSPATH')) exit;
  */
 function cf7cc_get_clinics() {
     return [
+        'Cualquier clínica',
         'Torres Independencia',
         'Torres San José',
         'Torres Roma',
