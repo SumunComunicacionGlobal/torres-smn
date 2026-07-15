@@ -42,7 +42,7 @@
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'smn_scripts' );
+add_action( 'wp_enqueue_scripts', 'smn_scripts', 5 );
 
 /** 
 * Gutenberg scripts
