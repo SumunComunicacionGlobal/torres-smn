@@ -6,7 +6,8 @@
     padding: var(--wp--preset--spacing--20);
 
     &:not(.has-background) {
-        box-shadow: var(--wp--custom--box-shadow--1);
+        // box-shadow: var(--wp--custom--box-shadow--1);
+        border: 1px solid var(--wp--preset--color--neutral-30);
     }
 
     > .wp-block-image:first-child {

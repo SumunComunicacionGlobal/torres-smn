@@ -30,8 +30,8 @@
             height: inherit;
             padding-left: var(--wp--style--root--padding-left);
             padding-right: var(--wp--style--root--padding-right);
-            margin-top: 3rem;
-            margin-bottom: 6rem;
+            // margin-top: 3rem;
+            // margin-bottom: 6rem;
             min-height: 120px;
 
             > div {
@@ -45,9 +45,13 @@
     }
 }
 
-.slick-dots li button:before {
-    font-size: 1rem !important;
-    color: var(--wp--preset--color--primary) !important;
+.slick-dots li {
+    margin: 0 2px;
+
+    button:before {
+        font-size: .5rem !important;
+        color: var(--wp--preset--color--primary) !important;
+    }
 }
 
 .slick-slider {
