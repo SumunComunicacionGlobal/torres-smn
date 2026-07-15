@@ -1,5 +1,16 @@
 @use "../abstracts/mixins" as *;
 
+.slick-dotted {
+    padding-bottom: 2rem;
+}
+
+.slick-list {
+    margin: 0 calc( var(--wp--style--root--padding-left) * -1);
+}
+.slick-slide {
+    padding: 0 calc( var(--wp--style--root--padding-left) * 1);
+}
+
 @media ($below-tablet) {
     .wp-block-group.is-layout-grid.is-grid-slick-mobile {
         display: block;

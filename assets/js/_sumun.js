@@ -646,7 +646,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-jQuery('.beforeAfter, .is-style-before-after').beforeAfter({
+const beforeAfterElements = jQuery('.beforeAfter, .is-style-before-after');
+
+beforeAfterElements.beforeAfter({
 
   // is draggable/swipeable
   movable: true,
@@ -672,6 +674,22 @@ jQuery('.beforeAfter, .is-style-before-after').beforeAfter({
   onMoving: function() {},
   onMoveEnd: function() {}
   
+});
+
+beforeAfterElements.each(function () {
+  const container = jQuery(this);
+
+  if (!container.hasClass('before-after-container')) {
+    return;
+  }
+
+  if (!container.find('.smn-beforeafter-label--before').length) {
+    container.append('<span class="smn-beforeafter-label smn-beforeafter-label--before">Antes</span>');
+  }
+
+  if (!container.find('.smn-beforeafter-label--after').length) {
+    container.append('<span class="smn-beforeafter-label smn-beforeafter-label--after">Después</span>');
+  }
 });
 
   // Rotacion ciclica del titulo con efecto drop-in.

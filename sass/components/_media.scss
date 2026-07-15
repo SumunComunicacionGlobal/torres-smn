@@ -41,6 +41,32 @@ iframe,
         margin-block-start: 0;
     }
 
+    &.before-after-container {
+        position: relative;
+    }
+
+    .smn-beforeafter-label {
+        position: absolute;
+        top: var(--wp--preset--spacing--10);
+        z-index: 11;
+        padding: .35rem .75rem;
+        border-radius: var(--wp--custom--border-radius--rounded);
+        background-color: rgba(0, 0, 0, 0.55);
+        color: var(--wp--preset--color--neutral-white);
+        font-size: var(--wp--preset--font-size--caption);
+        line-height: 1;
+        pointer-events: none;
+        margin-top: 0;
+    }
+
+    .smn-beforeafter-label--before {
+        left: var(--wp--preset--spacing--10);
+    }
+
+    .smn-beforeafter-label--after {
+        right: var(--wp--preset--spacing--10);
+    }
+
 }
 
 .wp-block-embed.is-type-video,
