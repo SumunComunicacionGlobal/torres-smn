@@ -263,7 +263,8 @@
                         responsiveSlides: y,
                         responsiveSlidesToScroll: T,
                         vertical: k,
-                        variableWidth: W
+                        variableWidth: W,
+                        touchDrag: P = !0
                     } = e, _ = (0, d.useSelect)((e => e("core/block-editor").getBlock(l).innerBlocks)), C = (0, a.useBlockProps)({
                         className: c()(`cb-shows-${o}-slides`, _.length + 1 > o ? "cb-show-scrollbar" : "cb-hide-scrollbar")
                     }), x = (0, n.createElement)("div", {
@@ -346,6 +347,12 @@
                         onChange: e => t({
                             variableWidth: e
                         })
+                    }), (0, n.createElement)(i.ToggleControl, {
+                        label: (0, s.__)("Desactivar arrastre táctil"),
+                        checked: !P,
+                        onChange: e => t({
+                            touchDrag: !e
+                        })
                     })), (0, n.createElement)(i.PanelBody, {
                         title: (0, s.__)("Responsive Settings"),
                         initialOpen: !1
@@ -400,7 +407,8 @@
                         responsiveSlides: h,
                         responsiveSlidesToScroll: v,
                         vertical: m,
-                        variableWidth: W
+                        variableWidth: W,
+                        touchDrag: P = !0
                     } = e, f = {
                         slidesToShow: t,
                         slidesToScroll: l,
@@ -413,6 +421,8 @@
                         rtl: u,
                         vertical: m,
                         variableWidth: W,
+                        swipe: P,
+                        touchMove: P,
                         responsive: [{
                             ...b ? {
                                 breakpoint: b + 1

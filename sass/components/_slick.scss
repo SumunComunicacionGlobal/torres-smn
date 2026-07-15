@@ -49,3 +49,42 @@
     font-size: 1rem !important;
     color: var(--wp--preset--color--primary) !important;
 }
+
+.slick-slider {
+    padding-bottom: 3.5rem;
+
+    .slick-arrow {
+        width: 2.5rem;
+        height: 2.5rem;
+        top: auto;
+        bottom: 0;
+        transform: none;
+        z-index: 3;
+        border-radius: 50%;
+        background-color: var(--wp--preset--color--primary-30) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:before {
+            font-family: inherit;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: var(--wp--preset--color--neutral-white);
+            opacity: 1;
+        }
+
+        &.slick-disabled {
+            opacity: .5;
+        }
+    }
+
+    .slick-prev {
+        left: auto;
+        right: 3rem;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+}

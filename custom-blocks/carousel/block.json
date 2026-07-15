@@ -67,6 +67,10 @@
     "responsiveSlidesToScroll": {
       "type": "number",
       "default": 1
+    },
+    "touchDrag": {
+      "type": "boolean",
+      "default": true
     }
   },
   "supports": {
