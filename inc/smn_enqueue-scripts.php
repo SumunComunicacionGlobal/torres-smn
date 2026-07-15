@@ -16,7 +16,6 @@
 		true
 	);
 	wp_enqueue_script( '_sumun-js', get_template_directory_uri() . '/assets/js/_sumun.js', array( 'jquery' ), $theme_version, true );
-	wp_enqueue_script( 'smn_sumun-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), $theme_version, true );
 
 	// if ( has_block( 'cb/carousel' ) ) {
         wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/slick/slick.min.css' );

@@ -369,17 +369,17 @@
 			"fontSizes": [
 				{
 					"name": "Display",
-					"size": "clamp(3rem, 8.8vw, 5rem)",
+					"size": "clamp(2.75rem, 8.8vw, 4rem)",
 					"slug": "display"
 				},
 				{
 					"name": "H1",
-					"size": "clamp(3rem, 4.8vw, 4.25rem)",
+					"size": "clamp(2.5rem, 4.8vw, 3.75rem)",
 					"slug": "heading-1"
 				},
 				{
 					"name": "H2",
-					"size": "clamp(2rem, 4.4vw, 3.75rem)",
+					"size": "clamp(2rem, 4.4vw, 3.25rem)",
 					"slug": "heading-2"
 				},
 				{
@@ -497,7 +497,7 @@
 					"text": "var(--wp--preset--color--foreground)"
 				},
 				"spacing": {
-					"padding": "1rem 2rem"
+					"padding": "1rem 1.25rem"
 				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--font-main)",

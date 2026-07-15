@@ -1,7 +1,7 @@
 @use '../abstracts/mixins' as *;
 
 p + .wp-block-buttons {
-	margin-block-start: var(--wp--custom--layout--gap-large);
+	margin-block-start: var(--wp--custom--layout--gap);
 }
 
 .wp-block-read-more {
@@ -12,6 +12,11 @@ p + .wp-block-buttons {
 }
 .wp-block-buttons .wp-block-button .wp-block-button__link {
 	transition: all 0.3s ease;
+
+	@media ($above-laptop) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 	
 	&:has(img) {
 		display: flex;

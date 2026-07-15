@@ -11,7 +11,9 @@
     }
 
     .wp-block-media-text__content {
-        padding: var(--wp--custom--layout--gap-large);
+        @media ($above-laptop) {
+            padding: var(--wp--custom--layout--gap-large);
+        }
 
         > *:first-child {
             margin-top: 0;
@@ -19,10 +21,10 @@
 
     }
     
-    @media ($below-mobile) {
+    @media ($below-mobile-xs) {
 
         .wp-block-media-text__content {
-            padding: var(--wp--custom--layout--gap);
+            padding: var(--wp--custom--layout--gap) 0;
         }
     }
 

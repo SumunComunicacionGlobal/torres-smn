@@ -134,77 +134,78 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Oculta el header al bajar, lo muestra al subir y controla la visibilidad del logo.
-document.addEventListener('DOMContentLoaded', function () {
-  const masthead = document.querySelector('#masthead');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const masthead = document.querySelector('#masthead');
 
-  if (!masthead) {
-    return;
-  }
+//   if (!masthead) {
+//     return;
+//   }
 
-  const siteLogo = masthead.querySelector('.wp-block-site-logo');
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const delta = 8;
-  let hiddenOffset = 0;
+//   const siteLogo = masthead.querySelector('.wp-block-site-logo');
+//   let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//   const delta = 8;
+//   let hiddenOffset = 0;
 
-  function updateHiddenOffset() {
-    hiddenOffset = masthead.offsetHeight + 24;
-  }
+//   function updateHiddenOffset() {
+//     hiddenOffset = masthead.offsetHeight + 24;
+//   }
 
-  updateHiddenOffset();
+//   updateHiddenOffset();
 
-  masthead.style.transition = 'transform 320ms ease, opacity 240ms ease';
-  masthead.style.willChange = 'transform, opacity';
+//   masthead.style.transition = 'transform 320ms ease, opacity 240ms ease';
+//   masthead.style.willChange = 'transform, opacity';
 
-  if (siteLogo) {
-    siteLogo.style.transition = 'opacity 200ms ease, visibility 200ms ease';
-  }
+//   if (siteLogo) {
+//     siteLogo.style.transition = 'opacity 200ms ease, visibility 200ms ease';
+//   }
 
-  function setHeaderState(isScrollingDown, currentScrollTop) {
-    if (currentScrollTop <= 0) {
-      masthead.style.transform = 'translateY(0)';
-      masthead.style.opacity = '1';
-      if (siteLogo) {
-        siteLogo.style.opacity = '1';
-        siteLogo.style.visibility = 'visible';
-        siteLogo.style.pointerEvents = '';
-      }
-      return;
-    }
+//   function setHeaderState(isScrollingDown, currentScrollTop) {
+//     if (currentScrollTop <= 0) {
+//       masthead.style.transform = 'translateY(0)';
+//       masthead.style.opacity = '1';
+//       if (siteLogo) {
+//         siteLogo.style.opacity = '1';
+//         siteLogo.style.visibility = 'visible';
+//         siteLogo.style.pointerEvents = '';
+//       }
+//       return;
+//     }
 
-    if (isScrollingDown) {
-      masthead.style.transform = 'translateY(-' + hiddenOffset + 'px)';
-      masthead.style.opacity = '0';
-      if (siteLogo) {
-        siteLogo.style.opacity = '1';
-        siteLogo.style.visibility = 'visible';
-        siteLogo.style.pointerEvents = '';
-      }
-      return;
-    }
+//     if (isScrollingDown) {
+//       masthead.style.transform = 'translateY(-' + hiddenOffset + 'px)';
+//       masthead.style.opacity = '0';
+//       if (siteLogo) {
+//         siteLogo.style.opacity = '1';
+//         siteLogo.style.visibility = 'visible';
+//         siteLogo.style.pointerEvents = '';
+//       }
+//       return;
+//     }
 
-    masthead.style.transform = 'translateY(0)';
-    masthead.style.opacity = '1';
-    if (siteLogo) {
-      siteLogo.style.opacity = '0';
-      siteLogo.style.visibility = 'hidden';
-      siteLogo.style.pointerEvents = 'none';
-    }
-  }
+//     masthead.style.transform = 'translateY(0)';
+//     masthead.style.opacity = '1';
+//     if (siteLogo) {
+//       siteLogo.style.opacity = '0';
+//       siteLogo.style.visibility = 'hidden';
+//       siteLogo.style.pointerEvents = 'none';
+//     }
+//   }
 
-  window.addEventListener('resize', updateHiddenOffset, { passive: true });
+//   window.addEventListener('resize', updateHiddenOffset, { passive: true });
 
-  window.addEventListener('scroll', function () {
-    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const diff = currentScrollTop - lastScrollTop;
+//   window.addEventListener('scroll', function () {
+//     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//     const diff = currentScrollTop - lastScrollTop;
 
-    if (Math.abs(diff) <= delta) {
-      return;
-    }
+//     if (Math.abs(diff) <= delta) {
+//       return;
+//     }
 
-    setHeaderState(diff > 0, currentScrollTop);
-    lastScrollTop = currentScrollTop;
-  }, { passive: true });
-});
+//     setHeaderState(diff > 0, currentScrollTop);
+//     lastScrollTop = currentScrollTop;
+//   }, { passive: true });
+// });
+
 // Añade botones de scroll a la izquierda y derecha
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".is-style-group-horizontal-scroll-btns").forEach((content) => {
