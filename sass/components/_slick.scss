@@ -5,13 +5,14 @@
 }
 
 .slick-list {
-    margin: 0 calc( var(--wp--style--root--padding-left) * -1);
+    margin: 0 calc( var(--wp--style--spacing--10) * -1);
 }
-.slick-slide {
-    padding: 0 calc( var(--wp--style--root--padding-left) * 1);
+.slick-slide,
+.wp-block-cb-slide.slick-slide {
+    padding: 0 calc( var(--wp--style--spacing--10) * 1);
 }
 
-@media ($below-tablet) {
+@media (max-width: 768px) { // Adjust the breakpoint as needed
     .wp-block-group.is-layout-grid.is-grid-slick-mobile {
         display: block;
 
