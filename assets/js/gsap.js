@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gsap.from(element, {
             scrollTrigger: {
                 trigger: element, // Elemento que activa la animación
-                start: 'top 80%', // Inicia cuando el top del elemento está al 80% del viewport
+                start: 'top 95%', // Inicia cuando el top del elemento ha entrado un 5% del viewport
                 end: 'bottom 20%', // Termina cuando el bottom del elemento está al 20% del viewport
                 toggleActions: 'play none none none', // Reproducir solo una vez
             },
