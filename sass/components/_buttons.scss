@@ -56,6 +56,14 @@ p + .wp-block-buttons {
 }
 
 .wp-block-button {
+	@media ($below-mobile-xs) {
+		width: 100%;
+		flex-basis: 100%;
+
+		.wp-block-button__link {
+			width: 100%;
+		}
+	}
 	
 	&.has-icon-calendar .wp-block-button__link:after {
 		mask-image: url(./assets/icons/icono-calendario-negro.svg);
@@ -69,6 +77,17 @@ p + .wp-block-buttons {
 		color: var(--wp--preset--color--primary);
 	}
 
+}
+
+@media ($below-mobile-xs) {
+	#hero .wp-block-button {
+		width: auto;
+		flex-basis: auto;
+
+		.wp-block-button__link {
+			width: auto;
+		}
+	}
 }
 
 
@@ -159,3 +178,4 @@ p + .wp-block-buttons {
 		outline-offset: 2px;
 	}
 }
+
