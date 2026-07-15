@@ -45,16 +45,17 @@ body .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-
 }
 
 #masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
 	padding-top: var(--wp--preset--spacing--05);
 	padding-bottom: var(--wp--preset--spacing--05);
 	margin-top: var(--wp--preset--spacing--20);
 	margin-bottom: var(--wp--preset--spacing--20);
-	position: fixed;
 	background-color: transparent;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 9999;
 
 	.wp-block-site-logo {
 		width: 200px;
@@ -67,6 +68,7 @@ body .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-
 	body.scrolled & {
 		margin-top: 0 !important;
 		margin-bottom: 0 !important;
+		height: 64px;
 		background-color: var(--wp--preset--color--primary-100) !important;
 
 		.wp-block-site-logo {
