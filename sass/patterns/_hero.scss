@@ -1,7 +1,18 @@
-.home #hero {
-    position: relative;
+@use "../abstracts/mixins" as *;
+
+#hero {
+
+    @media ( $above-laptop ) {
+        min-height: 720px;
+    }
+
+    .home & {
+        position: relative;
+    }
+
+    .single-equipo & {
+        height: 45vw;
+    }
+    
 }
 
-.single-equipo #hero {
-    height: 45vw;
-}
