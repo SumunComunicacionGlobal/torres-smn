@@ -2,7 +2,7 @@
 
 #hero {
 
-    @media ( $above-laptop ) {
+    @media ( $above-tablet ) {
         min-height: 720px;
     }
 
@@ -13,6 +13,6 @@
     .single-equipo & {
         height: 45vw;
     }
-    
+
 }
 
