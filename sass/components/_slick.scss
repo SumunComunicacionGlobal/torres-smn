@@ -36,6 +36,10 @@
 
             > div {
                 height: 100%;
+
+                &.is-style-card-check {
+                    height: calc(100% - var(--wp--preset--spacing--20));
+                }
             }
         }
 
