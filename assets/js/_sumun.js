@@ -878,17 +878,20 @@ beforeAfterElements.each(function () {
       });
     });
 
-// Navegación suave para enlaces internos con offset 80px
+// Navegación suave para enlaces internos con offset dinámico (#masthead + 80px).
 jQuery(function ($) {
   $('a[href^="#"]').on('click', function (e) {
     var target = this.hash;
     var $target = $(target);
 
     if ($target.length) {
+      var mastheadHeight = $('#masthead').outerHeight() || 0;
+      var scrollOffset = mastheadHeight + 80;
+
       e.preventDefault();
       $('html, body').animate(
         {
-          scrollTop: $target.offset().top - 96
+          scrollTop: $target.offset().top - scrollOffset
         },
         600,
         'swing'
