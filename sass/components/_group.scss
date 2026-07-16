@@ -55,7 +55,7 @@
 .wp-block-group {
     
     &.is-layout-grid {
-        @media ($below-mobile) {
+        @media ($below-tablet) {
             grid-template-columns: 1fr;
         }
     }
