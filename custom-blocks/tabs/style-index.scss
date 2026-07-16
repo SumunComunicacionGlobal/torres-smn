@@ -20,7 +20,9 @@
     row-gap: 0 !important;
 
     .wp-block-smn-tab {
-        order: -1;
+        @media ($above-tablet) {
+            order: -1;
+        }
 
         @media ($below-tablet) {
             width: 100%;
@@ -50,6 +52,12 @@
             margin-left: var(--wp--custom--border-radius--2);
         }
 
+        @media ($below-tablet) {
+            &:not(.active) label {
+                border-radius: var(--wp--custom--border-radius--2);
+            }
+        }
+
     }
 
     .wp-block-smn-tab-content {
@@ -57,8 +65,10 @@
         opacity: 0;
         transition: opacity .3s ease, display .3s ease allow-discrete; 
         flex: 1 1 100%;
-        margin: 0;
-        order: 1;
+        margin: 0 0 var(--wp--preset--spacing--20);
+        @media ($above-tablet) {
+            order: 1;
+        }
         background-color: var(--wp--preset--color--primary-30);
         color: var(--wp--preset--color--neutral-white);
         padding: var(--wp--preset--spacing--10);
