@@ -17,6 +17,10 @@
         margin-right: calc(-1 * var(--wp--preset--spacing--20)) !important;
     }
 
+    > .wp-block-paragraph:first-child {
+        margin-top: 0;
+    }
+
     &.is-style-card-check {
         position: relative;
         margin-top: var(--wp--preset--spacing--20);
@@ -55,7 +59,7 @@
         flex-direction: column;
         justify-content: center;
     }
-    
+
 }
 
 
