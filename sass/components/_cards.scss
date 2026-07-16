@@ -5,6 +5,10 @@
     background-color: var(--wp--preset--color--neutral-white);
     padding: var(--wp--preset--spacing--20);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     &:not(.has-background) {
         // box-shadow: var(--wp--custom--box-shadow--1);
         border: 1px solid var(--wp--preset--color--neutral-30);

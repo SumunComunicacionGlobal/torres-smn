@@ -36,9 +36,6 @@
 
             > div {
                 height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
 
                 &.is-style-card-check {
                     height: calc(100% - var(--wp--preset--spacing--20));
