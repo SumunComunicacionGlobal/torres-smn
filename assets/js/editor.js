@@ -141,6 +141,10 @@ wp.domReady( () => {
 			label: 'Card con Check',
 		},
 		{
+			name: 'card-vcenter',
+			label: 'Card centrado verticalmente',
+		},
+		{
 			name: 'before-after',
 			label: 'Antes y Después',
 		}

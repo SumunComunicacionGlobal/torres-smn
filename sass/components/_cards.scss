@@ -1,13 +1,10 @@
 .card,
 .is-style-card,
-.is-style-card-check {
+.is-style-card-check,
+.is-style-card-vcenter {
     border-radius: var(--wp--custom--border-radius--1);
     background-color: var(--wp--preset--color--neutral-white);
     padding: var(--wp--preset--spacing--20);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     &:not(.has-background) {
         // box-shadow: var(--wp--custom--box-shadow--1);
@@ -52,6 +49,13 @@
             transform: translateX(-50%);
         }
     }
+
+    &.is-style-card-vcenter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
 }
 
 
