@@ -1,6 +1,7 @@
 @use "../abstracts/mixins" as *;
 
 #hero {
+    background-color: var(--wp--preset--color--primary-100);
 
     @media ( $above-mobile ) {
         min-height: 720px;
