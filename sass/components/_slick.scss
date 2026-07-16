@@ -12,7 +12,7 @@
     padding: 0 calc( var(--wp--preset--spacing--10) * 1);
 }
 
-@media (max-width: 768px) { // Adjust the breakpoint as needed
+@media ($below-tablet) {
     .wp-block-group.is-layout-grid.is-grid-slick-mobile {
         display: block;
 
