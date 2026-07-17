@@ -731,3 +731,19 @@ function smn_render_scroll_to_top_button() {
 }
 add_action( 'wp_footer', 'smn_render_scroll_to_top_button', 5 );
 
+function smn_print_custom_code_head() {
+    if ( is_admin() || ! function_exists( 'get_field' ) ) {
+        return;
+    }
+
+    $custom_code_current = get_field( 'custom_code_head' );
+    $custom_code = is_string( $custom_code_current ) ? trim( $custom_code_current ) : '';
+
+    if ( '' === $custom_code ) {
+        return;
+    }
+
+    echo $custom_code;
+}
+add_action( 'wp_head', 'smn_print_custom_code_head', 99 );
+
