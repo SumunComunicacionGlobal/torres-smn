@@ -88,11 +88,12 @@
     }
 
     .slick-prev {
-        left: auto;
-        right: 3rem;
+        left: calc(50% - 2.75rem);
+        right: auto;
     }
 
     .slick-next {
-        right: 0;
+        left: calc(50% + 0.25rem);
+        right: auto;
     }
 }
