@@ -91,7 +91,7 @@ function smn_youtube_video_shortcode( $atts = array() ) {
     $embed_url = 'https://www.youtube-nocookie.com/embed/' . rawurlencode( $video_id ) . '?rel=0';
 
     return sprintf(
-        '<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube"><div class="wp-block-embed__wrapper"><iframe title="YouTube video player" width="560" height="315" src="%1$s" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></figure>',
+        '<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube"><div class="wp-block-embed__wrapper"><iframe title="YouTube video player" width="100%" src="%1$s" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></figure>',
         esc_url( $embed_url )
     );
 }
