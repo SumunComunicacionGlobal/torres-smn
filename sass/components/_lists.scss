@@ -1,9 +1,5 @@
 @use '../abstracts/mixins' as *;
 
-ol.has-background, ul.has-background {
-    padding: 0;
-}
-
 ul.is-style-separator-list,
 ol.is-style-separator-list,
 ul.is-style-arrow-separator-list,

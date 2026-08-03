@@ -40,6 +40,15 @@ footer.wp-block-template-part {
     font-size: 1rem;
 }
 
+p,
+ul,
+ol {
+
+    &.has-background {
+        border-radius: var(--wp--preset--border-radius--05);
+    }
+}
+
 @media ($below-tablet) {
     .cabecera-podcast {
         flex-direction: column;
