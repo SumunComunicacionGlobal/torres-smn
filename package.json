@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/SumunComunicacionGlobal/smn_hybrid#readme",
   "devDependencies": {
-    "@wordpress/scripts": "^31.7.0",
+    "@wordpress/scripts": "^34.0.0",
     "@wordpress/stylelint-config": "^23.40.0",
     "dir-archiver": "^2.2.0",
     "rtlcss": "^4.3.0",
